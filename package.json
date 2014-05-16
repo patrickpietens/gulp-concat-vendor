@@ -36,11 +36,7 @@
       "url": "http://github.com/patrickpietens/gulp-concat-vendor/raw/master/LICENSE"
     }
   ],
-  "readme": "",
-  "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/patrickpietens/gulp-concat-vendor/issues"
-  },
-  "_id": "gulp-concat-vendor@0.0.1",
-  "_from": "gulp-concat-vendor@~0.0.1"  
+  }
 }
