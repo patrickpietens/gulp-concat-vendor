@@ -2,10 +2,10 @@
   "name": "gulp-concat-vendor",
   "description": "Concatenates external libraries installed by Bower sorted by their dependencies",
   "version": "0.0.1",
-  "homepage": "http://github.com/patricpietens/gulp-concat-vendor",
+  "homepage": "http://github.com/patrickpietens/gulp-concat-vendor",
   "repository": {
     "type": "git",
-    "url": "git://github.com/patricpietens/gulp-concat-vendor.git"
+    "url": "git://github.com/patrickpietens/gulp-concat-vendor.git"
   },
   "author": {
     "name": "Patrick Pietens",
