@@ -6,7 +6,7 @@
 </tr>
 <tr>
 <td>Description</td>
-<td>Concatenates external libraries installed by [Bower](http://bower.io/) sorted by their dependencies</td>
+<td>Concatenates external libraries installed by Bower sorted by their dependencies</td>
 </tr>
 <tr>
 <td>Node Version</td>
