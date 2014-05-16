@@ -28,7 +28,8 @@ gulp.task('scripts', function() {
 
 This will concat all external libraries installed by [Bower](http://bower.io/). It will sort all files depending on their dependencies before concating. Libraries not installed with [Bower](http://bower.io/) - that is, when the bower.json file was not found - will be skipped.
 
-Libraries like [Modernizr](http://modernizr.com/) don't use a bower.json file. Therefor you can add files manually to the concatenation, like so:
+Libraries like [Modernizr](http://modernizr.com/) don't use a bower.json file. 
+Therefor you can add files manually to the concatenation, like so:
 
 ```javascript
 var concat-vendor = require('gulp-concat-vendor');
