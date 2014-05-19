@@ -14,8 +14,6 @@
 </tr>
 </table>
 
-Gulp-concat-vendor will speed up your building process by separating external libraries from your project files.
-
 ## Usage
 
 ```javascript
