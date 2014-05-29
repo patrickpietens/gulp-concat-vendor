@@ -40,7 +40,8 @@ module.exports = function(filename, sources) {
 					var myData = JSON.parse(data);
 
 					if(!!myData.main) {
-						var mySourcePath = util.format("%s/%s", file.path, myData.main);
+						var myMain = [].concat(myData.main),
+							mySourcePath = util.format("%s/%s", file.path, myMain[0]);
 
 						myInfo.push(myData);
 						mySources[myData.name] = mySourcePath;
