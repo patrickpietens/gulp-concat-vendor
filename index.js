@@ -14,6 +14,7 @@ module.exports = function(filename, sources) {
 	}
 
 	var mySources = {},
+		myLibs = [],
 		myFiles = [],
 		myInfo = [];			
 
@@ -27,20 +28,34 @@ module.exports = function(filename, sources) {
 			myFiles.push(file.path);
 			return callback();
 		}
-		
-		var myPath = util.format("%s/bower.json", file.path);
-		fs.readFile(myPath, "utf8", function(error, data) {
-			if(!!error || !data) {
-				return callback();
-			}
 
-			var myData = JSON.parse(data),
-				mySourcePath = util.format("%s/%s", file.path, myData.main);
+		var myPath = util.format("%s/.bower.json", file.path);
+		fs.exists(myPath, function(exists) {
+  			if (exists) {
+				fs.readFile(myPath, "utf8", function(error, data) {
+					if(!!error || !data) {
+						return callback();
+					}
 
-			myInfo.push(myData);
-			mySources[myData.name] = mySourcePath;
+					var myData = JSON.parse(data);
 
-			callback();
+					if(!!myData.main) {
+						var mySourcePath = util.format("%s/%s", file.path, myData.main);
+
+						myInfo.push(myData);
+						mySources[myData.name] = mySourcePath;
+
+						callback();
+					}
+					else {
+						console.log(util.format("Skipping library @ %s. Bower.js is missing 'main' property.", file.path));
+						callback();
+					}
+				});
+  			} else {
+    			console.log(util.format("Skipping library @ %s. Couldn't find %s", file.path, myPath));
+    			callback();
+  			}
 		});
 	};
 
@@ -56,11 +71,13 @@ module.exports = function(filename, sources) {
 			mySort.add(data.name, myDependencies);
 		});
 
-		myFiles.push.apply(myFiles, mySort.sort().reverse().map(function(name) {
+		myLibs.push.apply(myLibs, mySort.sort().reverse().map(function(name) {
 			return mySources[name];
 		}));
 
-		gulp.src(myFiles)
+		myLibs = myLibs.concat(myFiles);
+
+		gulp.src(myLibs)
 			.pipe(concat(filename))
 			.on("data", function(data) {
 				this.push(data);
