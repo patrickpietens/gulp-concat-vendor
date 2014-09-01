@@ -17,7 +17,7 @@
 ## Usage
 
 ```javascript
-var concat-vendor = require('gulp-concat-vendor');
+var vendor = require('gulp-concat-vendor');
 
 gulp.task('scripts', function() {
   	gulp.src('./scripts/vendor/*')
@@ -32,7 +32,7 @@ Libraries like [Modernizr](http://modernizr.com/) don't use a bower.json file.
 Therefor you can add files manually to the concatenation, like so:
 
 ```javascript
-var concat-vendor = require('gulp-concat-vendor');
+var vendor = require('gulp-concat-vendor');
 
 gulp.task('scripts', function() {
 	gulp.src([
