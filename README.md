@@ -14,6 +14,16 @@
 </tr>
 </table>
 
+[![NPM version](http://img.shields.io/npm/v/gulp-concat-vendor.svg)](https://www.npmjs.org/package/gulp-concat-vendor)
+[![Dependency Status](https://david-dm.org/patrickpietens/gulp-concat-vendor.svg)](https://david-dm.org/patrickpietens/gulp-concat-vendor)
+[![Downloads](http://img.shields.io/npm/dm/gulp-concat-vendor.svg)](https://www.npmjs.org/package/gulp-concat-vendor)
+
+##Installation
+
+```bash
+npm install gulp-concat-vendor --save-dev
+```
+
 ## Usage
 
 ```javascript
