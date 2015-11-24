@@ -1,6 +1,7 @@
 "use strict";
 
 var gulp = require("gulp"),
+        path = require("path"),
 	gutil = require("gulp-util"),
 	through2 = require("through2"),
 	util = require("util"),
@@ -40,6 +41,7 @@ module.exports = function(filename, sources) {
 					var myData = JSON.parse(data);
 
 					if(!!myData.main) {
+                                                if( path.extname( myData.main ) != '.js' ) return;
 						var myMain = [].concat(myData.main),
 							mySourcePath = util.format("%s/%s", file.path, myMain[0]);
 
