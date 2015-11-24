@@ -50,7 +50,7 @@ module.exports = function(filename, sources) {
 						callback();
 					}
 					else {
-						console.log(util.format("Skipping library @ %s. Bower.js is missing 'main' property or it is not a JS filtype.", file.path));
+						console.log(util.format("Skipping library @ %s. Bower.js is missing 'main' property or it is not a JS filetype.", file.path));
 						callback();
 					}
 				});
