@@ -40,7 +40,7 @@ module.exports = function(filename, sources) {
 
 					var myData = JSON.parse(data);
 
-					if(!!myData.main  && path.extname( myData.main ) == '.js') {
+					if(!!myData.main && (path.extname( myData.main ) == '.js' || myData.main.constructor === Array)) {
 						var myMain = [].concat(myData.main),
 							mySourcePath = util.format("%s/%s", file.path, myMain[0]);
 
