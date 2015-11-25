@@ -1,6 +1,7 @@
 "use strict";
 
 var gulp = require("gulp"),
+        path = require("path"),
 	gutil = require("gulp-util"),
 	through2 = require("through2"),
 	util = require("util"),
@@ -39,7 +40,7 @@ module.exports = function(filename, sources) {
 
 					var myData = JSON.parse(data);
 
-					if(!!myData.main) {
+					if(!!myData.main && (path.extname( myData.main ) == '.js' || myData.main.constructor === Array)) {
 						var myMain = [].concat(myData.main),
 							mySourcePath = util.format("%s/%s", file.path, myMain[0]);
 
@@ -49,7 +50,7 @@ module.exports = function(filename, sources) {
 						callback();
 					}
 					else {
-						console.log(util.format("Skipping library @ %s. Bower.js is missing 'main' property.", file.path));
+						console.log(util.format("Skipping library @ %s. Bower.js is missing 'main' property or it is not a JS filetype.", file.path));
 						callback();
 					}
 				});
