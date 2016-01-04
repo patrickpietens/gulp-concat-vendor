@@ -77,6 +77,9 @@ module.exports = function(filename, sources) {
 			return mySources[name];
 		}));
 
+		myLibs = myLibs.filter(function(n){ return n != undefined });
+
+
 		myLibs = myLibs.concat(myFiles);
 
 		gulp.src(myLibs)
